@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NS Construction - We Are Hiring</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base styles for the body */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #eef2f7;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Main container for the poster */
+        .poster-container {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 900px;
+            width: 100%;
+            margin: auto;
+            background-color: #ffffff;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        /* Header Section */
+        .poster-header {
+            width: 100%;
+            background-color: #222;
+            color: #ffffff;
+            padding: 25px 40px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        .header-main-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+            letter-spacing: 1.5px;
+        }
+        .header-tagline {
+            font-size: 12px;
+            color: #ccc;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        /* Left and Right Panes */
+        .left-pane, .right-pane {
+            box-sizing: border-box;
+            padding: 40px;
+        }
+
+        .left-pane {
+            width: 55%;
+            background-color: #ffffff;
+        }
+
+        .right-pane {
+            width: 45%;
+            background-color: #f4f7fc;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        /* Typography */
+        .intro-text {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a237e;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+        
+        /* Role-specific styling */
+        .role-section {
+            margin-bottom: 30px;
+        }
+        
+        .role-section h2 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #007BFF;
+            margin: 0 0 5px 0;
+        }
+        
+        .role-section .salary {
+            font-size: 15px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+            background-color: #eef2f7;
+            padding: 4px 8px;
+            border-radius: 6px;
+            display: inline-block;
+        }
+        
+        .role-section h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a237e;
+            border-left: 3px solid #007BFF;
+            padding-left: 12px;
+            margin: 15px 0 10px 0;
+        }
+
+        /* Unordered list styling */
+        ul {
+            list-style: none;
+            padding: 0;
+            font-size: 14px;
+            color: #555555;
+            line-height: 1.8;
+        }
+
+        ul li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        ul li::before {
+            content: '▸';
+            color: #007BFF;
+            margin-right: 10px;
+            font-size: 16px;
+            line-height: 1.4;
+        }
+        
+        /* Note Styling */
+        .role-note {
+            background-color: #fff9e6;
+            border-left: 3px solid #ffc107;
+            padding: 12px 15px;
+            border-radius: 4px;
+            font-size: 13px;
+            color: #5d4037;
+            margin-top: 15px;
+            line-height: 1.5;
+        }
+        .role-note strong {
+            color: #d84315;
+        }
+
+        /* Applicant Counter Styling */
+        .applicant-counter {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 15px 20px;
+            width: 100%;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .applicant-counter .count {
+            font-size: 36px;
+            font-weight: 700;
+            color: #007BFF;
+            line-height: 1;
+            transition: transform 0.2s ease-in-out;
+        }
+        .applicant-counter .label {
+            font-size: 14px;
+            color: #555555;
+            margin-top: 5px;
+        }
+
+        /* Contact box styling */
+        .contact-box {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 20px;
+            width: 100%;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .contact-box h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a237e;
+            margin: 0 0 15px 0;
+        }
+
+        .contact-box p {
+            font-size: 14px;
+            color: #555555;
+            margin-bottom: 20px;
+        }
+        
+        .contact-box a {
+            font-size: 15px;
+            color: #007BFF;
+            text-decoration: none;
+            display: block;
+            word-break: break-all;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .left-pane, .right-pane {
+                width: 100%;
+                padding: 25px;
+            }
+            .poster-container {
+                flex-direction: column;
+            }
+            .right-pane {
+                order: -1;
+            }
+            .header-main-title {
+                font-size: 24px;
+            }
+            .header-tagline {
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="poster-container">
+        <!-- Header Section -->
+        <div class="poster-header">
+            <h1 class="header-main-title">NS Construction</h1>
+            <div class="header-tagline">ENGINEERS • CONTRACTORS • PROJECT MANAGER • INTERIOR DECORATORS</div>
+        </div>
+
+        <!-- Left Pane - Details -->
+        <div class="left-pane">
+            <p class="intro-text">
+                WE ARE HIRING! <br>
+                Join an ISO-certified firm with <strong>5x year-on-year growth</strong>. We are excited to announce openings for two key roles on our team.
+            </p>
+
+            <!-- Role 1: Project Engineer -->
+            <div class="role-section">
+                <h2>1. Project Engineer</h2>
+                <div class="salary">Monthly CTC: ₹60,000 - ₹80,000</div>
+                <h3>Key Responsibilities:</h3>
+                <ul>
+                    <li>Lead full-site execution and supervise labor & materials.</li>
+                    <li>Serve as the main point of contact for clients and contractors.</li>
+                    <li>Conduct daily progress reviews and ensure safety compliance.</li>
+                    <li>Track project timelines and ensure milestones are met.</li>
+                </ul>
+                <div class="role-note">
+                    <strong>Note:</strong> Please apply only if you have a minimum of 2 years of experience as a Project Engineer on projects with past employers.
+                </div>
+            </div>
+            
+            <!-- Role 2: Billing Engineer -->
+            <div class="role-section">
+                <h2>2. Billing Engineer (Planning & Quality)</h2>
+                <div class="salary">Monthly CTC: ₹40,000 - ₹60,000</div>
+                <h3>Key Responsibilities:</h3>
+                <ul>
+                    <li>Prepare client RA Bills, handle subcontractor billing & BOQ.</li>
+                    <li>Create work schedules, track progress, and manage resources.</li>
+                    <li>Implement on-site quality assurance and material testing.</li>
+                    <li>Coordinate between planning, billing, and quality control functions.</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- Right Pane - Contact Info -->
+        <div class="right-pane">
+            <!-- Applicant Counter -->
+            <div class="applicant-counter">
+                <div class="count" id="applicant-count">55</div>
+                <div class="label">Applicants so far</div>
+            </div>
+
+            <div class="contact-box">
+                <h3>Ready to Build Your Career?</h3>
+                <p>Send your CV and become a part of our growth story.</p>
+                
+                <p style="font-size: 14px; color: #1a237e; margin: 0 0 5px 0; font-weight: 600;">Apply Now:</p>
+                <a href="mailto:nsconstruction98999@gmail.com">nsconstruction98999@gmail.com</a>
+                <p style="color: #888; font-size: 14px; margin: 5px 0;">&</p>
+                <a href="mailto:abhinavborarsa@gmail.com">abhinavborarsa@gmail.com</a>
+            </div>
+            <p style="font-size: 12px; color: #888; margin-top: 20px;">Location: Jasola, New Delhi (Travel Required)</p>
+        </div>
+        
+    </div>
+
+    <script>
+        // This script creates a live counter to simulate new applicants.
+        document.addEventListener('DOMContentLoaded', function() {
+            const countElement = document.getElementById('applicant-count');
+            // The starting number of applicants.
+            let applicantCount = 55;
+
+            function incrementCounter() {
+                // Increase the count by one.
+                applicantCount++;
+                // Update the number displayed on the page.
+                countElement.textContent = applicantCount;
+                
+                // Add a subtle "pop" animation to draw attention to the change.
+                countElement.style.transform = 'scale(1.1)';
+                setTimeout(() => {
+                    countElement.style.transform = 'scale(1)';
+                }, 150);
+
+                // Set a random time for the next applicant to appear (between 8 to 15 seconds).
+                const randomInterval = Math.floor(Math.random() * (15000 - 8000 + 1)) + 8000; 
+                setTimeout(incrementCounter, randomInterval);
+            }
+
+            // Start the counter after a 5-second delay when the page loads.
+            setTimeout(incrementCounter, 5000);
+        });
+    </script>
+
+</body>
+</html>
